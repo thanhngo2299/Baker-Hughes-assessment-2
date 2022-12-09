@@ -1,0 +1,99 @@
+using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
+using System.Data;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.ServiceModel.Web;
+using System.Text;
+using System.Reflection;
+using System.Security.Cryptography;
+
+// NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service" in code, svc and config file together.
+public class Service : IService
+{
+    public List<UserData> GetAllUser()
+    {
+        List<UserData> userCollection = new List<UserData>();
+        string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        string sql = "SELECT * FROM TestWCF";
+
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            con.Open();
+
+            using (SqlCommand comando = new SqlCommand(sql, con))
+            {
+
+                using (var reader = comando.ExecuteReader())
+                {
+
+                    while (reader.Read())
+                    {
+                        UserData tbl = new UserData();
+                        tbl.Id = (int)reader["Id"];
+
+                        tbl.Name = Convert.IsDBNull(reader["Name"]) ? null : (string)reader["Name"];
+
+                        userCollection.Add(tbl);
+                    }
+                }
+            }
+
+
+            con.Close();
+        }
+        return userCollection;
+    }
+
+    public void Insert(string name)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO TestWCF (Name) VALUES (@Name)"))
+            {
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+    }
+
+    public void Update(int Id, string name)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("UPDATE TestWCF SET Name = @Name WHERE Id = @Id"))
+            {
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Parameters.AddWithValue("@Name", name);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+    }
+
+    public void Delete(int Id)
+    {
+        string constr = ConfigurationManager.ConnectionStrings["constr"].ConnectionString;
+        using (SqlConnection con = new SqlConnection(constr))
+        {
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM TestWCF WHERE Id = @Id"))
+            {
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.Connection = con;
+                con.Open();
+                cmd.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+    }
+}

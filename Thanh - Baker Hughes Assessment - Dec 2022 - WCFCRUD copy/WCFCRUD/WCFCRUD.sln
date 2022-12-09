@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33110.190
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WCFCRUD", "WCFCRUD\WCFCRUD.csproj", "{8A614630-F1EE-4529-A277-B4A95BEA8A5E}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "CRUDService", "CRUDService\", "{43AE5128-12EA-4561-B0BA-C062FFB26F73}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.7.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52505"
+		Debug.AspNetCompiler.PhysicalPath = "CRUDService\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52505\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52505"
+		Release.AspNetCompiler.PhysicalPath = "CRUDService\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52505\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52505"
+		SlnRelativePath = "CRUDService\"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8A614630-F1EE-4529-A277-B4A95BEA8A5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A614630-F1EE-4529-A277-B4A95BEA8A5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A614630-F1EE-4529-A277-B4A95BEA8A5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A614630-F1EE-4529-A277-B4A95BEA8A5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43AE5128-12EA-4561-B0BA-C062FFB26F73}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AE5128-12EA-4561-B0BA-C062FFB26F73}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43AE5128-12EA-4561-B0BA-C062FFB26F73}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{43AE5128-12EA-4561-B0BA-C062FFB26F73}.Release|Any CPU.Build.0 = Debug|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C94DEDA-CAA2-4970-8F59-FB11E27AF4B0}
+	EndGlobalSection
+EndGlobal

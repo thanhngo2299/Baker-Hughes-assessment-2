@@ -1,0 +1,90 @@
+<Window x:Class="WCFCRUD.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WCFCRUD"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Loaded="Grid_Loaded">
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="0.2*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <DataGrid Name = "dataGrid" AlternatingRowBackground = "LightBlue"  
+         AlternationCount = "2" AutoGenerateColumns = "False" CellEditEnding="dataGrid_CellEditEnding">
+           
+            <DataGrid.Columns>
+                <DataGridTextColumn Header = "VIN" Binding = "{Binding VIN}" />
+                <DataGridTextColumn Header = "Vehicle Maker" Binding = "{Vehicle_Maker}" />
+        			<ComboBox Name="comboBox_Vehicle_Maker"  IsEditable="True">
+            			<ComboBoxItem>Ford</ComboBoxItem>
+            			<ComboBoxItem>Tesla</ComboBoxItem>
+            			<ComboBoxItem>GM</ComboBoxItem>
+       			 </ComboBox>
+                <DataGridTextColumn Header = "Vehicle Year" Binding = "{Binding vehicle_year}" />
+                <DataGridTextColumn Header = "Vehicle Model" Binding = "{Binding vehicle_model}" />
+                <DataGridTextColumn Header = "Inspection Date" Binding = "{Binding inspection_date}" />
+                <DataGridTextColumn Header = "Inspector Name" Binding = "{Binding inspector_name}" />
+                <DataGridTextColumn Header = "Inspection Location" Binding = "{Binding inspection_location}" />
+                <DataGridTextColumn Header = "Inspection Result" Binding = "{Binding inspection_result}" />
+        			<ComboBox Name="comboBox_inspection_result" IsEditable="True">
+            			<ComboBoxItem>Fail</ComboBoxItem>
+            			<ComboBoxItem>Pass</ComboBoxItem>
+       			 </ComboBox>
+                <DataGridTextColumn Header = "Notes" Binding = "{Binding Notes}" />
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="DeleteClick">Delete</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Width="100" Height="50" Grid.Row="1" Content="Add" Click="InsertRecord"></Button>
+        <Popup x:Name="popup"   Placement="Center"  Width="200" Grid.Row="0" Height="100" Margin="0,20,0,0">
+            <Border BorderBrush="Black" BorderThickness="2" Background="AliceBlue">
+                <StackPanel Orientation="Vertical">
+				<Label Content="VIN:" Target="{Binding ElementName= textBox_Input_VIN}" />
+				<TextBox x:Name="textBox_Input_VIN" />
+
+				<Label Content="Vehicle Maker: " Target="{Binding ElementName= comboBox_Input_Vehicle_Maker}" />
+        			<ComboBox x:Name="comboBox_Input_Vehicle_Maker" IsEditable="True">
+            			<ComboBoxItem>Ford</ComboBoxItem>
+            			<ComboBoxItem>Tesla</ComboBoxItem>
+            			<ComboBoxItem>GM</ComboBoxItem>
+       			 </ComboBox>
+
+				<Label Content="Vehicle Year:" Target="{Binding ElementName= textBox_vehicle_year}" />
+				<TextBox x:Name="textBox_vehicle_year" />
+
+				<Label Content="Vehicle Model:" Target="{Binding ElementName= textBox_vehicle_model}" />
+				<TextBox x:Name="textBox_vehicle_model" />
+
+				<Label Content="Inspection Date:" Target="{Binding ElementName= textBox_inspection_date}" />
+				<TextBox x:Name="textBox_inspection_date" />
+
+				<Label Content="Inspector Name:" Target="{Binding ElementName= textBox_inspector_name}" />
+				<TextBox x:Name="textBox_inspector_name" />
+
+				<Label Content="Inspection Location:" Target="{Binding ElementName= textBox_inspection_location}" />
+				<TextBox x:Name="textBox_inspection_location" />
+
+				<Label Content="Inspection Result: " Target="{Binding ElementName= comboBox_Input_inspection_result}" />
+        			<ComboBox x:Name="comboBox_Input_inspection_result" IsEditable="True">
+            			<ComboBoxItem>Fail</ComboBoxItem>
+            			<ComboBoxItem>Pass</ComboBoxItem>
+       			 </ComboBox>
+
+				<Label Content="Notes:" Target="{Binding ElementName= textBox_notes}" />
+				<TextBox x:Name="textBox_notes" />
+
+                    <Button Height="50" Width="100" Content="Add" Click="AddClick"></Button>
+                </StackPanel>
+                
+            </Border>
+        </Popup>
+    </Grid>
+</Window>
