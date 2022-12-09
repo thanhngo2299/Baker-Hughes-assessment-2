@@ -1,0 +1,22 @@
+
+
+CREATE  TABLE  TestWCF
+{
+      VIN                      INT                  KEY,
+
+      vehicle_maker            INT                  NOT NULL,
+
+      vehicle_year             INT                  NOT NULL,
+
+      vehicle_model            INT                  NOT NULL,
+
+      inspection_date          DATE                NOT NULL,
+
+      inspector_name           varchar(100)        NOT NULL,
+
+      inspection_location      varchar(100)       NOT NULL,
+
+      inspection_result        BOOLEAN            ,
+
+      notes                    varchar(3840)    
+};
